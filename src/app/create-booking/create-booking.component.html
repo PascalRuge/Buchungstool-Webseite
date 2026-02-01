@@ -1,0 +1,40 @@
+<div class="card bg-dark text-white">
+    <div class="card-header">
+        <h5>Buchung Erstellen</h5>
+    </div>
+<form>
+<div class="card-body">        
+<div class="row mb-2">
+<div class="col">
+
+            <!--Id-->
+            <label class="form-label">ID Buchung</label>
+            <input (ngModel) = "booking.id" name="ID" class="form-control" />
+            </div>
+            <div class="col">
+            <!--RaumNummer-->
+            <label class="form-label">Raum Nummer</label>
+             <input (ngModel) = "booking.roomNumber" name="roomNumber" class="form-control" />
+            </div>
+            </div>
+            <div class="row mb-2">
+            <div class="col-4">
+            <!--Name-->
+            <label class="form-label">Vollständiger Gäste Name</label>
+            <input  (ngModel) = "booking.name" name="name" class="form-control" />
+            </div>
+            <div class="col">
+              <label class="form-label">Start Date</label>
+              <input type="date" formControlName="startDate"  [value]="booking.startDate | date:'yyyy-MM-dd'" (input)="dateChanged($event, true)" class="form-control" />
+             </div>
+              <div class="col">
+                <label class="form-label">End Date</label>
+                <input type="date" formControlName="endDate" [value]="booking.endDate | date:'yyyy-MM-dd'" (input)="dateChanged($event, false)" class="form-control" />
+            </div>
+               </div>           
+ <div class="card-footer">
+    <button (click)="save()" class="btn btn-primary">Buchung Absenden</button>
+</div>
+
+
+
